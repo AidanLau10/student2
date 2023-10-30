@@ -1,0 +1,11 @@
+{
+    "name": "Skincare API",
+    "version": "1.0.0",
+    "description": "Skincare shopping guidelines",
+    "manifest_version": 3,
+    "author": "Aidan Lau",
+    "action":{
+        "default_popup": "skincare-extension.html",
+        "default_title": "Skincare API"
+    }
+}

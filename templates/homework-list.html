@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework List</title>
+    <link rel="stylesheet" href="static/styles/homework-list.css">
+</head>
+<body>
+    <h1>Homework List</h1>
+    <div class="container">
+        <div class="todo-app">
+        
+            <h2>Homework List<img src="static/icon.png"></h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add your text">
+                <button onclick="addTask()">Add</button>
+            </div>
+            <ul id="list-container">
+                {% for assignment in assignments %}
+                    <li class="checked">
+                        <strong>{{ assignment.name }}</strong>
+                        <p>Due Date: {{ assignment.due_at }}</p>
+                        <p>Description: {{ assignment.description | safe }}</p>
+                        <span>×</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script src="static/homework-list.js"></script>
+</body>
+</html>

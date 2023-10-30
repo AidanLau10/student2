@@ -1,0 +1,14 @@
+# test course meta data
+Unit1:
+  title: Creating a Lab Notebook
+  start: 0
+  end: 3
+Unit2:
+  title: Pair and Team Collaboration
+  start: 4
+  end: 7
+Unit3:
+  title: Web Application, Data, and N@tM
+  start: 8
+  end: 12
+
