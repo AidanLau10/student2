@@ -9,12 +9,12 @@ toggle.addEventListener('click', function() {
     body.style.background = 'white';
     body.style.color = 'black';
     body.style.transition = '1s';
-    skincareDay.src= '/student/images/skincare-day.jpg';
+    skincareDay.src= '/student2/images/skincare-day.jpg';
   }else {
     body.style.background = 'black';
     body.style.color = 'white';
     body.style.transition = '1s';
-    skincareDay.src= '/student/images/skincare-night.jpg';
+    skincareDay.src= '/student2/images/skincare-night.jpg';
   }
   console.log(document.getElementById('day-routine').innerHTML)
   change_text(document.getElementById('day-routine').innerHTML);
@@ -52,12 +52,12 @@ function showMode() {
     body.style.background = 'white';
     body.style.color = 'black';
     body.style.transition = '1s';
-    skincareDay.src= '/student/images/skincare-day.jpg';
+    skincareDay.src= '/student2/images/skincare-day.jpg';
   } else {
     body.style.background = 'black';
     body.style.color = 'white';
     body.style.transition = '1s';
-    skincareDay.src= '/student/images/skincare-night.jpg';
+    skincareDay.src= '/student2/images/skincare-night.jpg';
   }
 }
 

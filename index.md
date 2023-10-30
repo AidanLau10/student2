@@ -17,7 +17,7 @@ title: Home Page
 ### Here is my freeform picture!
 
 
-<img src="/student/images/freeform.jpg" alt="freeform">
+<img src="/student2/images/freeform.jpg" alt="freeform">
 
 - The 4 stick figures is my family and I. My sister just moved to college and I miss her already.
 - Below my family, there is a monitor, keyboard, mouse, and desktop. I really like to play video games.

@@ -1,4 +1,4 @@
-#!/student/random-fact.py
+#!/student2/random-fact.py
 if [ $2 -lt 21] ; then
     echo "This is a bash script"
 else
