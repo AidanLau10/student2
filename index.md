@@ -168,7 +168,7 @@ div.desc {
 
 <div class="gallery">
   <video controls>
-    <source src="video_forest.mp4" type="video/mp4">
+    <source src="student2/images/.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <div class="desc">Add a description of the video here</div>
