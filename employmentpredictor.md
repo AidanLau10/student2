@@ -1,7 +1,7 @@
 ---
 layout: default
-permalink: /titanic/
-title: Titanic
+permalink: /employmentpredictor/
+title: Employment Predictor
 ---
 
 <style>
@@ -58,48 +58,45 @@ button:hover {
     }
 </style>
 <body>
-
-    <h1>Titanic Survival Predictor</h1>
-    <form id="titanicForm">
+  <h1>Will you get the job?</h1>
+    <form id="jobForm">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
-        <label for="pclass">Passenger Class:</label>
-        <select id="pclass" name="pclass" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+       <label for="EdLevel">Education Level:</label>
+        <select id="EdLevel" name="EdLevel" required>
+            <option value="Undergraduate">Undergraduate</option>
+            <option value="Master">Master</option>
+            <option value="PhD">PhD</option>
+            <option value="Other">Other</option>
         </select><br><br>
-        <label for="sex">Sex:</label>
-        <select id="sex" name="sex" required>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+        <label for="Employment">Employment:</label>
+        <select id="Employment" name="Employment" required>
+            <option value="Dev">Dev</option>
+            <option value="NotDev">NotDev</option>
         </select><br><br>
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required><br><br>
-        <label for="sibsp">Siblings/Spouses Aboard:</label>
-        <input type="number" id="sibsp" name="sibsp" required><br><br>
-        <label for="parch">Parents/Children Aboard:</label>
-        <input type="number" id="parch" name="parch" required><br><br>
-        <label for="fare">Fare:</label>
-        <input type="number" id="fare" name="fare" required><br><br>
-        <label for="embarked">Embarked:</label>
-        <select id="embarked" name="embarked" required>
-            <option value="C">Cherbourg</option>
-            <option value="Q">Queenstown</option>
-            <option value="S">Southampton</option>
+        <label for="Gender">Gender:</label>
+        <select id="Gender" name="Gender" required>
+            <option value="Man">Man</option>
+            <option value="Woman">Woman</option>
         </select><br><br>
-        <label for="alone">Alone:</label>
-        <input type="checkbox" id="alone" name="alone"><br><br>
-        <button type="button" onclick="predictSurvival()">Predict Survival</button>
+
+        <label for="YearsCode">Years of Coding:</label>
+        <input type="number" id="YearsCode" name="YearsCode" required><br><br>
+        <label for="YearsCodePro">Years of Professional Coding:</label>
+        <input type="number" id="YearsCodePro" name="YearsCodePro" required><br><br>
+
+ 
+        <button type="button" onclick="predictJob()">Predict Job</button>
     </form>
     <div id="result"></div>
+
     <script>
-    function predictSurvival() {
-        var form = document.getElementById('titanicForm');
+    function predictJob() {
+        var form = document.getElementById('jobForm');
         var name = document.getElementById('name');
         var resultDiv = document.getElementById('result');
         var formData = new FormData(form);
-        fetch('http://localhost:8064/api/titanic/predict', {
+        fetch('http://localhost:8064/api/datasalary/predict', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -113,9 +110,9 @@ button:hover {
             for (var key in data) {
                 resultDiv.innerHTML += '<p>' + key + ': ' + data[key] + '</p>';
             }
-            var deathProbability = parseFloat(data['Death probability']);
-            var survivalProbability = parseFloat(data['Survival probability']);
-            if (survivalProbability > deathProbability) {
+            var unemploymentProbability = parseFloat(data['Unemployment probability']);
+            var employmentProbability = parseFloat(data['Employment probability']);
+            if (employmentProbability > unemploymentProbability) {
                 resultDiv.innerHTML += '<h3>Solid Odds</h3>';
             } else {
                 resultDiv.innerHTML += '<h3>Not Looking So Good</h3>';
@@ -127,3 +124,5 @@ button:hover {
     }
     </script>
 </body>
+
+
