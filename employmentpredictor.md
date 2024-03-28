@@ -90,39 +90,40 @@ button:hover {
     </form>
     <div id="result"></div>
 
-    <script>
-    function predictJob() {
-        var form = document.getElementById('jobForm');
-        var name = document.getElementById('name');
-        var resultDiv = document.getElementById('result');
-        var formData = new FormData(form);
-        fetch('http://localhost:8064/api/datasalary/predict', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(Object.fromEntries(formData))
-        })
-        .then(response => response.json())
-        .then(data => {
-            resultDiv.innerHTML = '<h2>Prediction Result for ' + name.value + '</h2>';
-            for (var key in data) {
-                resultDiv.innerHTML += '<p>' + key + ': ' + data[key] + '</p>';
-            }
-            var unemploymentProbability = parseFloat(data['Unemployment probability']);
-            var employmentProbability = parseFloat(data['Employment probability']);
-            if (employmentProbability > unemploymentProbability) {
-                resultDiv.innerHTML += '<h3>Solid Odds</h3>';
-            } else {
-                resultDiv.innerHTML += '<h3>Not Looking So Good</h3>';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-    </script>
+<script>
+function predictJob() {
+    var form = document.getElementById('jobForm');
+    var name = document.getElementById('name');
+    var resultDiv = document.getElementById('result');
+    var formData = new FormData(form);
+    fetch('http://localhost:8064/api/datasalary/predict', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+    })
+    .then(response => response.json())
+    .then(data => {
+        resultDiv.innerHTML = '<h2>Prediction Result for ' + name.value + '</h2>';
+        for (var key in data) {
+            resultDiv.innerHTML += '<p>' + key + ': ' + data[key] + '</p>';
+        }
+        var unemploymentProbability = parseFloat(data['Unemployment probability']);
+        var employmentProbability = parseFloat(data['Employment probability']);
+        if (employmentProbability > unemploymentProbability) {
+            resultDiv.innerHTML += '<h3>Solid Odds</h3>';
+        } else {
+            resultDiv.innerHTML += '<h3>Not Looking So Good</h3>';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+</script>
+
 </body>
 
 
